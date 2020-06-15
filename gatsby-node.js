@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create blog posts pages.
   const posts = result.data.allGhostPost.edges
 
-  posts.forEach((post, index) => {
+  posts.forEach(({ node }, index) => {
     const previous = index === posts.length - 1 ? null : posts[index + 1].node
     const next = index === 0 ? null : posts[index - 1].node
 
